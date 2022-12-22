@@ -4,7 +4,7 @@
     margin: 0;
 }
 body {
-    background: url("./images/bg-lofi-3.jpg");
+    background: url("/images/bg-lofi-3.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
