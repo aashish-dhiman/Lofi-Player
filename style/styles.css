@@ -1,0 +1,86 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body {
+    background: url("/images/bg-lofi-3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+}
+.player-container {
+    text-align: center;
+    max-width: 370px;
+    height: 50vh;
+    background: #ff5438;
+    margin: 8%;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px 5px #d8403b;
+}
+img {
+    max-width: 20%;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px 5px #d8403b;
+    margin-bottom: 2%;
+    margin-top: 5%;
+}
+h2 {
+    font-size: 20px;
+    margin: 15px;
+    letter-spacing: 2px;
+}
+h3 {
+    font-size: 13px;
+    margin-bottom: -20px;
+}
+
+/* Progress */
+.progress-container {
+    background: #000;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 50px 20px;
+    height: 4px;
+    width: 90%;
+}
+
+.progress {
+    background: #fff;
+    border-radius: 5px;
+    height: 100%;
+    width: 0%;
+    transition: width 0.1s linear;
+}
+.duration-wrapper {
+    position: relative;
+    top: -25px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+.fas {
+    font-size: 25px;
+    color: rgb(50, 47, 47);
+    cursor: pointer;
+    user-select: none;
+    padding: 10px;
+    margin-top: -5px;
+}
+
+.fas:hover {
+    color: #000;
+}
+
+.main-button {
+    font-size: 30px;
+}

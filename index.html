@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/styles.css">
+    <script src="https://kit.fontawesome.com/550eff11f8.js" crossorigin="anonymous"></script>
+    <title>Lofi Player</title>
+</head>
+
+<body>
+    <div class="player-container">
+        <div class="img-container">
+            <img src="./images/lofi-song.jpg" alt="Lofi-Song">
+
+        </div>
+        <h2 id="title">Lofi-Mix</h2>
+        <h3 id="artist">Various Artist</h3>
+        <audio src="./audio/lofi-1.mp3"></audio>
+        <div class="progress-container" id="progress-container">
+            <div class="progress" id="progress">
+            </div>
+            <div class="duration-wrapper">
+                <span id="current-time">0:00</span>
+                <span id="duration">1:03:55</span>
+            </div>
+
+            <div class="player-controls">
+                <i class="fas fa-backward" id="prev" title="Previous"></i>
+                <i class="fas fa-play main-button" id="play" title="Play"></i>
+                <i class="fas fa-forward" id="next" title="Next"></i>
+            </div>
+        </div>
+
+    </div>
+    <script src="script/app.js"></script>
+</body>
+
+</html>
