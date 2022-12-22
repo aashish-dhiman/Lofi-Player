@@ -20,7 +20,7 @@ body {
 .player-container {
     text-align: center;
     max-width: 370px;
-    height: 50vh;
+    height: 300px;
     background: #ff5438;
     margin: 8%;
     border-radius: 10px;
