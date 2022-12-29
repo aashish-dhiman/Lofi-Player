@@ -108,6 +108,7 @@ function updateProgress() {
             }
             else {
                 min = Math.round(min % 60);
+                min = min > 10 ? min : '0' + min;
                 document.getElementById('duration').innerText = (hr + ':' + min + ':' + sec);
             }
         }
@@ -126,6 +127,7 @@ function updateProgress() {
         }
         else {
             c_min = Math.round(c_min % 60);
+            c_min = c_min > 10 ? c_min : '0' + c_min;
             document.getElementById('duration').innerText = (c_hr + ':' + c_min + ':' + c_sec);
         }
 
