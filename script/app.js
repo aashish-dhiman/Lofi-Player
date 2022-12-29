@@ -20,6 +20,8 @@ progressContainer.addEventListener('click', setSongDuration);
 
 music.addEventListener('timeupdate', updateProgress);
 
+document.addEventListener('keydown', keyFunction);
+
 //songs collection
 const songs = [
     {
@@ -40,7 +42,7 @@ const songs = [
     }
 ];
 
-let isMusicPlaying = false;
+var isMusicPlaying = false;
 
 function play() {
     isMusicPlaying = true;
@@ -80,7 +82,7 @@ function nextSong() {
     if (musicIndex == songs.length) {
         musicIndex = 0;
     }
-    console.log(musicIndex);
+    // console.log(musicIndex);
     loadSong(songs[musicIndex]);
     if (isMusicPlaying) {
         play();
@@ -150,6 +152,26 @@ function setSongDuration(e) {
     play();
 }
 
+function keyFunction(e) {
+    //keyCodes- 32-spaceBar, 78- N, 80-P
+
+    switch (e.keyCode) {
+        case 32:
+            if (isMusicPlaying)
+                pause();
+            else
+                play();
+            break;
+        case 78:
+            nextSong();
+            break;
+        case 80:
+            prevSong();
+            break;
+        default:
+            console.log("Not valid key");
+    }
+}
 
 
 
