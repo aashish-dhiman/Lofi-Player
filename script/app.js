@@ -97,18 +97,18 @@ function updateProgress() {
         let hr = Math.floor(min / 60);
         // console.log(hr);
         sec = Math.round(duration_sec % 60);
-        min = min > 10 ? min : '0' + min;
-        sec = sec > 10 ? sec : '0' + sec;
+        min = min >= 10 ? min : '0' + min;
+        sec = sec >= 10 ? sec : '0' + sec;
         hr = hr > 10 ? hr : '0' + hr;
         // console.log(music.duration);
         //to avoid NaN error
         if (duration_sec) {
-            if (min <= 60) {
+            if (min < 60) {
                 document.getElementById('duration').innerText = (min + ':' + sec);
             }
             else {
                 min = Math.round(min % 60);
-                min = min > 10 ? min : '0' + min;
+                min = min >= 10 ? min : '0' + min;
                 document.getElementById('duration').innerText = (hr + ':' + min + ':' + sec);
             }
         }
@@ -119,15 +119,15 @@ function updateProgress() {
         let c_min = Math.floor(current_sec / 60);
         let c_hr = Math.floor(c_min / 60);
         c_sec = c_sec % 60;
-        c_min = c_min > 10 ? c_min : '0' + c_min;
-        c_sec = c_sec > 10 ? c_sec : '0' + c_sec;
+        c_min = c_min >= 10 ? c_min : '0' + c_min;
+        c_sec = c_sec >= 10 ? c_sec : '0' + c_sec;
 
-        if (min <= 60) {
+        if (min < 60) {
             document.getElementById('current-time').innerText = (c_min + ':' + c_sec);
         }
         else {
             c_min = Math.round(c_min % 60);
-            c_min = c_min > 10 ? c_min : '0' + c_min;
+            c_min = c_min >= 10 ? c_min : '0' + c_min;
             document.getElementById('duration').innerText = (c_hr + ':' + c_min + ':' + c_sec);
         }
 
