@@ -51,6 +51,7 @@ h3 {
     margin: 50px 20px;
     height: 4px;
     width: 90%;
+    user-select: none;
 }
 
 .progress {
@@ -59,6 +60,8 @@ h3 {
     height: 100%;
     width: 0%;
     transition: width 0.1s linear;
+    user-select: none;
+
 }
 .duration-wrapper {
     position: relative;
@@ -66,6 +69,8 @@ h3 {
     display: flex;
     justify-content: space-between;
     font-size: 12px;
+    user-select: none;
+
 }
 
 .fas {
@@ -75,10 +80,13 @@ h3 {
     user-select: none;
     padding: 10px;
     margin-top: -5px;
+    user-select: none;
 }
 
 .fas:hover {
     color: #000;
+    user-select: none;
+
 }
 
 .main-button {
