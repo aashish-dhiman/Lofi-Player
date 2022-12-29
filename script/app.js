@@ -122,13 +122,13 @@ function updateProgress() {
         c_min = c_min >= 10 ? c_min : '0' + c_min;
         c_sec = c_sec >= 10 ? c_sec : '0' + c_sec;
 
-        if (min < 60) {
+        if (c_min < 60) {
             document.getElementById('current-time').innerText = (c_min + ':' + c_sec);
         }
         else {
             c_min = Math.round(c_min % 60);
             c_min = c_min >= 10 ? c_min : '0' + c_min;
-            document.getElementById('duration').innerText = (c_hr + ':' + c_min + ':' + c_sec);
+            document.getElementById('current-time').innerText = (c_hr + ':' + c_min + ':' + c_sec);
         }
 
         //setting the progress width
