@@ -4,7 +4,7 @@
     margin: 0;
 }
 body {
-    background: url("/images/bg-lofi-3.jpg");
+    background: url("/images/bg-lofi-1.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -21,10 +21,11 @@ body {
     text-align: center;
     max-width: 370px;
     height: 300px;
-    background: #ff5438;
+    /* background: #ff5438; */
+    background: transparent;
     margin: 8%;
     border-radius: 10px;
-    box-shadow: 0 5px 10px 5px #d8403b;
+    box-shadow: 0 5px 10px 5px #000;
 }
 img {
     max-width: 20%;
@@ -35,27 +36,27 @@ img {
 }
 h2 {
     font-size: 20px;
-    margin: 15px;
+    margin-bottom: 10px;
     letter-spacing: 2px;
 }
 h3 {
     font-size: 13px;
-    margin-bottom: -20px;
+    /* margin-bottom: -20px; */
 }
 
 /* Progress */
 .progress-container {
-    background: #000;
+    background: rgb(222, 211, 211);
     border-radius: 5px;
     cursor: pointer;
-    margin: 50px 20px;
+    margin: 50px 20px 10px 20px;
     height: 4px;
     width: 90%;
     user-select: none;
 }
 
 .progress {
-    background: #fff;
+    background: #2456f2;
     border-radius: 5px;
     height: 100%;
     width: 0%;
@@ -69,26 +70,32 @@ h3 {
     display: flex;
     justify-content: space-between;
     font-size: 12px;
+    color: #fff;
     user-select: none;
 
+}
+
+/* player controls */
+.player-controls{
+    text-align: center;
+    user-select: none;
 }
 
 .fas {
-    font-size: 25px;
-    color: rgb(50, 47, 47);
+    font-size: 23px;
+    color: rgb(78, 72, 72);
     cursor: pointer;
-    user-select: none;
     padding: 10px;
-    margin-top: -5px;
-    user-select: none;
+
 }
 
 .fas:hover {
-    color: #000;
-    user-select: none;
+    color: rgb(222, 211, 211);
+    /* color: #2456f2; */
 
 }
 
 .main-button {
     font-size: 30px;
+    width: 40px;
 }
