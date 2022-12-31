@@ -6,6 +6,9 @@ const title = document.getElementById('title');
 const artist = document.getElementById('artist');
 const progress = document.getElementById('progress');
 const progressContainer = document.getElementById('progress-container');
+const wishlist = document.getElementById('like');
+const volumeChange = document.getElementById('volume');
+const musicMute = document.getElementById('mute');
 
 //event listeners
 playBtn.addEventListener('click', () => (isMusicPlaying ? pause() : play()));
@@ -21,6 +24,10 @@ progressContainer.addEventListener('click', setSongDuration);
 music.addEventListener('timeupdate', updateProgress);
 
 document.addEventListener('keydown', keyFunction);
+
+wishlist.addEventListener('click', like);
+
+volumeChange.addEventListener('input', changeVolume);
 
 //songs collection
 const songs = [
@@ -89,6 +96,21 @@ function nextSong() {
     }
 }
 
+function mute() {
+    if (music.muted == true) {
+        music.muted = false;
+        musicMute.style.display = 'none';
+        volumeChange.style.display = 'inline';
+
+    }
+    else {
+        music.muted = true;
+        musicMute.style.display = 'inline';
+        volumeChange.style.display = 'none';
+
+    }
+}
+
 function updateProgress() {
     if (isMusicPlaying) {
 
@@ -143,7 +165,7 @@ function updateProgress() {
 }
 
 function setSongDuration(e) {
-    console.log(e);
+    // console.log(e);
     let width = this.clientWidth;
     // console.log('width',width);
     let offsetX = e.offsetX;
@@ -152,8 +174,10 @@ function setSongDuration(e) {
     play();
 }
 
+//keypress section
+
 function keyFunction(e) {
-    //keyCodes- 32-spaceBar, 78- N, 80-P
+    //keyCodes- 32-spaceBar, 78- N, 80-P, 38-arrow up, 40- arrow down
 
     switch (e.keyCode) {
         case 32:
@@ -162,18 +186,69 @@ function keyFunction(e) {
             else
                 play();
             break;
+        case 77:
+            mute();
+            break;
         case 78:
             nextSong();
             break;
         case 80:
             prevSong();
             break;
-        default:
-            console.log("Not valid key");
+        case 38:
+            increaseVolume();
+            break;
+        case 40:
+            decreaseVolume();
+            break;
+        case 37:
+            backward();
+            break;
+        case 39:
+            forward();
+            break;
     }
 }
 
+function like() {
+    if (wishlist.style.color) {
+        wishlist.style.removeProperty("color");
+    }
+    else {
+        wishlist.style.color = 'rgb(236, 31, 31)';
+    }
+}
 
+function changeVolume(e) {
+    // console.log(e.currentTarget.value);
+    music.volume = e.currentTarget.value / 100;
+    volumeChange.title = e.currentTarget.value;
+}
+
+function increaseVolume() {
+    if (music.volume < 1) {
+        music.volume += 0.1;
+        volumeChange.value = music.volume * 100;
+        volumeChange.title = Math.round(music.volume * 100);
+    }
+    // console.log(music.volume);
+}
+function decreaseVolume() {
+    if (music.volume > 0.01) {
+        music.volume -= 0.1;
+        volumeChange.value = music.volume * 100;
+        volumeChange.title = Math.round(music.volume * 100);
+    }
+    // console.log(music.volume);
+}
+
+function forward() {
+    music.currentTime += 10;
+}
+
+function backward() {
+    music.currentTime -= 10;
+}
 
 
 //aliter for setting up the duration ,current time and width

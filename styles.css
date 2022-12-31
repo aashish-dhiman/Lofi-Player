@@ -62,7 +62,6 @@ h3 {
     width: 0%;
     transition: width 0.1s linear;
     user-select: none;
-
 }
 .duration-wrapper {
     position: relative;
@@ -72,13 +71,13 @@ h3 {
     font-size: 12px;
     color: #fff;
     user-select: none;
-
 }
 
 /* player controls */
-.player-controls{
+.player-controls {
     text-align: center;
     user-select: none;
+    position: relative;
 }
 
 .fas {
@@ -86,16 +85,43 @@ h3 {
     color: rgb(78, 72, 72);
     cursor: pointer;
     padding: 10px;
-
 }
 
 .fas:hover {
     color: rgb(222, 211, 211);
     /* color: #2456f2; */
-
 }
 
 .main-button {
     font-size: 30px;
     width: 40px;
+}
+#like {
+    position: absolute;
+    left: 7%;
+    top: 10%;
+}
+#like:hover {
+    color: rgb(236, 31, 31);
+}
+
+#mute {
+    position: absolute;
+    display: none;
+    top: 11%;
+    right: 9%;
+}
+
+#volume {
+    position: absolute;
+    width: 20%;
+    top: 40%;
+    right: 5%;
+    cursor: pointer;
+    opacity: 0.5;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+}
+#volume:hover {
+    opacity: 1;
 }
