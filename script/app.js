@@ -29,27 +29,51 @@ wishlist.addEventListener('click', like);
 
 volumeChange.addEventListener('input', changeVolume);
 
+//variables
+var isMusicPlaying = false;
+let musicIndex = 0;
+
 //songs collection
 const songs = [
     {
         name: 'lofi-1',
-        displayName: 'Arijit Singh Lofi',
-        artist: 'Arijit-Singh'
+        displayName: 'Agar Tum Sath Ho ',
+        artist: 'Arijit Singh x Alka Yagnik'
 
     },
     {
         name: 'lofi-2',
-        displayName: 'Love Lofi',
-        artist: 'Various-Artist'
+        displayName: 'Kesariya',
+        artist: 'Arijit Singh'
     },
     {
         name: 'lofi-3',
+        displayName: 'Maan Meri Jaan',
+        artist: 'KING'
+    },
+    {
+        name: 'lofi-4',
+        displayName: 'No Love X Aaja We Mahiya',
+        artist: 'Shubh ft AP Dhillon'
+    },
+    {
+        name: 'lofi-5',
+        displayName: 'Excuses',
+        artist: 'AP Dhillon & Gurinder Gill'
+    },
+    {
+        name: 'lofi-6',
+        displayName: 'WOH',
+        artist: 'Ikka x Dino James x Badshah'
+    },
+    {
+        name: 'lofi-7',
         displayName: 'Study Lofi',
-        artist: 'Mix-Artist'
+        artist: 'Various Artist'
     }
 ];
 
-var isMusicPlaying = false;
+//functions
 
 function play() {
     isMusicPlaying = true;
@@ -69,8 +93,6 @@ function loadSong(song) {
     artist.textContent = song.artist;
     music.src = './audio/' + song.name + '.mp3';
 }
-
-let musicIndex = 0;
 
 function prevSong() {
     musicIndex--;
@@ -125,6 +147,7 @@ function updateProgress() {
         sec = sec >= 10 ? sec : '0' + sec;
         hr = hr > 10 ? hr : '0' + hr;
         // console.log(music.duration);
+
         //to avoid NaN error
         if (duration_sec) {
             if (min < 60) {
@@ -174,7 +197,7 @@ function setSongDuration(e) {
     play();
 }
 
-//keypress section
+//keypress events section
 
 function keyFunction(e) {
     //keyCodes- 32-spaceBar, 78- N, 80-P, 38-arrow up, 40- arrow down
