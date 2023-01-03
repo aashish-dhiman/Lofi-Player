@@ -9,6 +9,8 @@ const progressContainer = document.getElementById('progress-container');
 const wishlist = document.getElementById('like');
 const volumeChange = document.getElementById('volume');
 const musicMute = document.getElementById('mute');
+const volume_icon = document.getElementById('volume-icon');
+
 
 //event listeners
 playBtn.addEventListener('click', () => (isMusicPlaying ? pause() : play()));
@@ -28,6 +30,10 @@ document.addEventListener('keydown', keyFunction);
 wishlist.addEventListener('click', like);
 
 volumeChange.addEventListener('input', changeVolume);
+
+volume_icon.addEventListener('click', mute);
+
+musicMute.addEventListener('click', mute);
 
 //variables
 var isMusicPlaying = false;
@@ -119,17 +125,20 @@ function nextSong() {
 }
 
 function mute() {
-    if (music.muted == true) {
+    if (music.muted === true) {
         music.muted = false;
         musicMute.style.display = 'none';
         volumeChange.style.display = 'inline';
+        volume_icon.style.display = 'inline';
+        volumeChange.value = music.volume * 100;
+        volumeChange.title = Math.round(music.volume * 100);
 
     }
     else {
         music.muted = true;
         musicMute.style.display = 'inline';
-        volumeChange.style.display = 'none';
-
+        volume_icon.style.display = 'none';
+        volumeChange.value = '0';
     }
 }
 
@@ -197,42 +206,6 @@ function setSongDuration(e) {
     play();
 }
 
-//keypress events section
-
-function keyFunction(e) {
-    //keyCodes- 32-spaceBar, 78- N, 80-P, 38-arrow up, 40- arrow down
-
-    switch (e.keyCode) {
-        case 32:
-            if (isMusicPlaying)
-                pause();
-            else
-                play();
-            break;
-        case 77:
-            mute();
-            break;
-        case 78:
-            nextSong();
-            break;
-        case 80:
-            prevSong();
-            break;
-        case 38:
-            increaseVolume();
-            break;
-        case 40:
-            decreaseVolume();
-            break;
-        case 37:
-            backward();
-            break;
-        case 39:
-            forward();
-            break;
-    }
-}
-
 function like() {
     if (wishlist.style.color) {
         wishlist.style.removeProperty("color");
@@ -271,6 +244,43 @@ function forward() {
 
 function backward() {
     music.currentTime -= 10;
+}
+
+
+//keypress events section
+
+function keyFunction(e) {
+    //keyCodes- 32-spaceBar, 78- N, 80-P, 38-arrow up, 40- arrow down
+
+    switch (e.keyCode) {
+        case 32:
+            if (isMusicPlaying)
+                pause();
+            else
+                play();
+            break;
+        case 77:
+            mute();
+            break;
+        case 78:
+            nextSong();
+            break;
+        case 80:
+            prevSong();
+            break;
+        case 38:
+            increaseVolume();
+            break;
+        case 40:
+            decreaseVolume();
+            break;
+        case 37:
+            backward();
+            break;
+        case 39:
+            forward();
+            break;
+    }
 }
 
 
