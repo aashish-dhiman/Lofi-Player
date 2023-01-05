@@ -8,9 +8,8 @@ const progress = document.getElementById('progress');
 const progressContainer = document.getElementById('progress-container');
 const wishlist = document.getElementById('like');
 const volumeChange = document.getElementById('volume');
-const musicMute = document.getElementById('mute');
+const mute_icon = document.getElementById('mute');
 const volume_icon = document.getElementById('volume-icon');
-
 
 //event listeners
 playBtn.addEventListener('click', () => (isMusicPlaying ? pause() : play()));
@@ -31,9 +30,10 @@ wishlist.addEventListener('click', like);
 
 volumeChange.addEventListener('input', changeVolume);
 
+volumeChange, addEventListener('wheel', mouseWheel);
 volume_icon.addEventListener('click', mute);
 
-musicMute.addEventListener('click', mute);
+mute_icon.addEventListener('click', mute);
 
 //variables
 var isMusicPlaying = false;
@@ -110,6 +110,7 @@ function prevSong() {
     if (isMusicPlaying) {
         play();
     }
+    progress.style.width = 0 + '%';
 }
 
 function nextSong() {
@@ -122,13 +123,40 @@ function nextSong() {
     if (isMusicPlaying) {
         play();
     }
+    progress.style.width = 0 + '%';
+
 }
+
+function increaseVolume() {
+    if (music.volume < 1) {
+        music.volume += 0.1;
+        volumeChange.value = music.volume * 100;
+        volumeChange.title = Math.round(music.volume * 100);
+    }
+    // console.log(music.volume);
+}
+function decreaseVolume() {
+    if (music.volume > 0.01) {
+        music.volume -= 0.1;
+        volumeChange.value = music.volume * 100;
+        volumeChange.title = Math.round(music.volume * 100);
+    }
+    // console.log(music.volume);
+}
+
+function forward() {
+    music.currentTime += 10;
+}
+
+function backward() {
+    music.currentTime -= 10;
+}
+
 
 function mute() {
     if (music.muted === true) {
         music.muted = false;
-        musicMute.style.display = 'none';
-        volumeChange.style.display = 'inline';
+        mute_icon.style.display = 'none';
         volume_icon.style.display = 'inline';
         volumeChange.value = music.volume * 100;
         volumeChange.title = Math.round(music.volume * 100);
@@ -136,7 +164,7 @@ function mute() {
     }
     else {
         music.muted = true;
-        musicMute.style.display = 'inline';
+        mute_icon.style.display = 'inline';
         volume_icon.style.display = 'none';
         volumeChange.value = '0';
     }
@@ -203,7 +231,25 @@ function setSongDuration(e) {
     let offsetX = e.offsetX;
     // console.log('offsetX',offsetX);
     music.currentTime = (offsetX / width) * music.duration;
-    play();
+    progress.style.width = (music.currentTime / music.duration) * 100 + "%";
+}
+
+function changeVolume(e) {
+    // console.log(e.currentTarget.value);
+    music.volume = e.currentTarget.value / 100;
+    volumeChange.title = e.currentTarget.value;
+}
+
+function mouseWheel(e) {
+    // console.log(e);
+    var delta = e.deltaY;
+
+    if (delta < 0) {
+        increaseVolume();
+    }
+    else {
+        decreaseVolume();
+    }
 }
 
 function like() {
@@ -215,36 +261,8 @@ function like() {
     }
 }
 
-function changeVolume(e) {
-    // console.log(e.currentTarget.value);
-    music.volume = e.currentTarget.value / 100;
-    volumeChange.title = e.currentTarget.value;
-}
 
-function increaseVolume() {
-    if (music.volume < 1) {
-        music.volume += 0.1;
-        volumeChange.value = music.volume * 100;
-        volumeChange.title = Math.round(music.volume * 100);
-    }
-    // console.log(music.volume);
-}
-function decreaseVolume() {
-    if (music.volume > 0.01) {
-        music.volume -= 0.1;
-        volumeChange.value = music.volume * 100;
-        volumeChange.title = Math.round(music.volume * 100);
-    }
-    // console.log(music.volume);
-}
 
-function forward() {
-    music.currentTime += 10;
-}
-
-function backward() {
-    music.currentTime -= 10;
-}
 
 
 //keypress events section
