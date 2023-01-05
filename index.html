@@ -13,22 +13,75 @@
 
 <body>
     <div class="player-container">
+        <!-- animations -->
+
+        <div class="bubble">
+            <span class="drop" style="--i:11"></span>
+            <span class="drop" style="--i:13"></span>
+            <span class="drop" style="--i:15"></span>
+            <span class="drop" style="--i:17"></span>
+            <span class="drop" style="--i:20"></span>
+            <span class="drop" style="--i:17"></span>
+            <span class="drop" style="--i:15"></span>
+            <span class="drop" style="--i:13"></span>
+            <span class="drop" style="--i:11"></span>
+            <span class="drop" style="--i:14"></span>
+            <span class="drop" style="--i:18"></span>
+            <span class="drop" style="--i:22"></span>
+            <span class="drop" style="--i:25"></span>
+            <span class="drop" style="--i:22"></span>
+            <span class="drop" style="--i:18"></span>
+            <span class="drop" style="--i:14"></span>
+            <span class="drop" style="--i:11"></span>
+            <span class="drop" style="--i:13"></span>
+            <span class="drop" style="--i:15"></span>
+            <span class="drop" style="--i:17"></span>
+            <span class="drop" style="--i:20"></span>
+            <span class="drop" style="--i:17"></span>
+            <span class="drop" style="--i:15"></span>
+            <span class="drop" style="--i:13"></span>
+            <span class="drop" style="--i:11"></span>
+            <span class="drop" style="--i:11"></span>
+            <span class="drop" style="--i:14"></span>
+            <span class="drop" style="--i:18"></span>
+            <span class="drop" style="--i:22"></span>
+            <span class="drop" style="--i:25"></span>
+            <span class="drop" style="--i:22"></span>
+            <span class="drop" style="--i:18"></span>
+            <span class="drop" style="--i:14"></span>
+            <span class="drop" style="--i:11"></span>
+            <span class="drop" style="--i:13"></span>
+            <span class="drop" style="--i:15"></span>
+            <span class="drop" style="--i:17"></span>
+            <span class="drop" style="--i:20"></span>
+            <span class="drop" style="--i:17"></span>
+            <span class="drop" style="--i:15"></span>
+            <span class="drop" style="--i:13"></span>
+            <span class="drop" style="--i:13"></span>
+        </div>
+
+        <!-- player -->
+
         <div class="img-container">
             <img src="/images/lofi-song.jpg" alt="Lofi-Song">
-
         </div>
+
         <h2 id="title">Agar Tum Sath Ho</h2>
+
         <h3 id="artist">Arijit Singh x Alka Yagnik</h3>
+
         <audio src="/audio/lofi-1.mp3" preload="metadata"></audio>
 
         <div class="progress-container" id="progress-container">
             <div class="progress" id="progress">
             </div>
-            <div class="duration-wrapper">
-                <span id="current-time">0:00</span>
-                <span id="duration">05:41</span>
-            </div>
         </div>
+
+        <div class="duration-wrapper">
+            <span id="current-time">0:00</span>
+            <span id="duration">05:41</span>
+        </div>
+
         <div class="player-controls">
             <i class="fas fa-heart" id="like" title="wishlist"></i>
             <i class="fas fa-backward" id="prev" title="Previous"></i>
@@ -39,8 +92,8 @@
             <i class="fas fa-volume-high" id="volume-icon" title="Volume"></i>
         </div>
 
-
     </div>
+
     <script src="script/app.js"></script>
 </body>
 

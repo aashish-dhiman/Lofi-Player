@@ -16,6 +16,8 @@ body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
         sans-serif;
+    /* to stop animation causing body stretch */
+    overflow: hidden;
 }
 .player-container {
     text-align: center;
@@ -32,7 +34,6 @@ img {
     border-radius: 50%;
     box-shadow: 0px 0px 10px 5px #d8403b;
     margin-bottom: 2%;
-    margin-top: 5%;
 }
 h2 {
     font-size: 20px;
@@ -49,7 +50,7 @@ h3 {
     background: rgb(222, 211, 211);
     border-radius: 5px;
     cursor: pointer;
-    margin: 50px 20px 10px 20px;
+    margin: 60px 20px 10px 20px;
     height: 4px;
     width: 90%;
     user-select: none;
@@ -61,11 +62,11 @@ h3 {
     height: 100%;
     width: 0%;
     transition: width 0.1s linear;
-    user-select: none;
 }
 .duration-wrapper {
     position: relative;
-    top: -25px;
+    top: -75px;
+    margin: 50px 20px 0px 20px;
     display: flex;
     justify-content: space-between;
     font-size: 12px;
@@ -78,18 +79,18 @@ h3 {
     text-align: center;
     user-select: none;
     position: relative;
+    top: -18%;
 }
 
 .fas {
     font-size: 23px;
     color: rgb(78, 72, 72);
     cursor: pointer;
-    padding: 10px;
+    padding: 8px;
 }
 
 .fas:hover {
     color: rgb(222, 211, 211);
-    /* color: #2456f2; */
 }
 
 .main-button {
@@ -98,24 +99,23 @@ h3 {
 }
 #like {
     position: absolute;
+    font-size: 18px;
     left: 7%;
     top: 10%;
-}
-#like:hover {
-    color: rgb(236, 31, 31);
 }
 
 #mute {
     position: absolute;
     display: none;
     font-size: 20px;
-    top: 15%;
+    top: 20%;
     right: 18%;
 }
 #volume-icon {
-    font-size: 20px;
+    font-size: 18px;
     position: absolute;
-    top: 15%;
+    /* display: none; */
+    top: 20%;
     right: 18%;
 }
 
@@ -131,4 +131,37 @@ h3 {
 }
 #volume:hover {
     opacity: 1;
+}
+
+/* animations */
+.bubble {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+}
+
+.bubble span {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background: #4fc3dc;
+    margin: 0 4px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px #4fc3dc44, 0 0 50px #4fc3dc, 0 0 100px #4fc3dc;
+    animation: animate 1s linear infinite;
+    animation-duration: calc(100s / var(--i));
+}
+.bubble span:nth-child(even) {
+    background-color: #ff2d75;
+    box-shadow: 0 0 0 10px #ff2d7544, 0 0 50px #ff2d75, 0 0 100px #ff2d75;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateZ(100vh) scale(0.1);
+    }
+    100% {
+        transform: translateY(100vh) scale(0.2);
+    }
 }
