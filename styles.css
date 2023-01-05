@@ -23,7 +23,6 @@ body {
     text-align: center;
     max-width: 370px;
     height: 300px;
-    /* background: #ff5438; */
     background: transparent;
     margin: 8%;
     border-radius: 10px;
@@ -163,5 +162,18 @@ h3 {
     }
     100% {
         transform: translateY(100vh) scale(0.2);
+    }
+}
+
+/* media query */
+@media screen and (max-width: 400px) {
+    .player-container{
+        max-width: 340px;
+    }
+    img{
+        margin-top: 12px;
+    }
+    h3{
+        margin-top: -5px;
     }
 }
